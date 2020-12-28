@@ -1,0 +1,123 @@
+<button type="button" class="btn btn-dark btn-lg mb-3 mt-3" data-toggle="modal" data-target="#exampleModal" (click)="clearFunk()">Add product</button>
+<div class="accordion" id="accordionExample" >
+  <div class="card" *ngFor="let item of adminPage">
+    <div class="card-header" id="headingOne{{item.id}}">
+      <h5 class="mb-0 line">
+        <button class="btn btn-link" type="button" data-toggle="collapse"  [attr.data-target]="'#collapseOne'+ item.id"  aria-expanded="true" [attr.aria-controls]="'collapseOne' + item.id">
+          {{item.title}}
+        </button>
+        <div class="d-flex align-items-center image">
+          <div>
+            <img src="assets/images/pencil.svg" alt="update" [attr.key]="item.id" data-toggle="modal" data-target="#exampleModalUpgrade" (click) = "upgradeProduct($event)">
+          </div> 
+          <div>
+            <img src="assets/images/x-circle.svg" alt="delete" [attr.key]="item.id" (click) = "deleteProduct($event)">
+          </div>
+        </div>
+      </h5>
+    </div>
+    <div id="collapseOne{{item.id}}" class="collapse" [attr.aria-labelledby]="'headingOne' + item.id" data-parent="#accordionExample">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div><img src={{item.img}} width="150" height="150" alt="logo" loading="lazy" class="mr-5"></div>
+          <div>{{item.description}}</div>
+        </div>
+        <div class="text-right"><span>Price: {{item.price}} $</span><span>Q-ty: {{item.quantity}}</span></div>
+      </div>
+    </div>
+  </div>
+ </div>
+
+ <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form name="addNewProduct"> 
+          <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label mr-2">Title</label>
+            <div class="col-sm-9 mb-3">
+              <input type="text" class="form-control" id="title" placeholder="Title" (keyup)="checkParams()" #title>
+            </div>
+              <label for="description" class="col-sm-2 col-form-label mr-2">Description</label>
+              <div class="col-sm-9 mb-3">
+                <textarea class="form-control" id="description" placeholder="Description" rows="3" (keyup)="checkParams()" #description></textarea>
+              </div>
+              <label for="quantity" class="col-sm-2 col-form-label mr-2">Quantity</label>
+              <div class="col-sm-9 mb-3">
+                <input type="number" class="form-control" id="quantity" min="1" placeholder="0" (keyup)="checkParams()" #quantity>
+              </div>
+              <label for="price" class="col-sm-2 col-form-label mr-2">Price</label>
+              <div class="col-sm-9 mb-3">
+                <input type="number" class="form-control" id="price" min="1" placeholder="0" (keyup)="checkParams()" #price>
+              </div>
+              <label for="url" class="col-sm-2 col-form-label mr-2">Image URL</label>
+              <div class="col-sm-9 mb-3">
+                <input type="text" class="form-control" id="url" placeholder="your URL"(keyup)="checkParams()" #url>
+             </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btnSave" data-dismiss="modal" disabled="dasabled"
+            (click)="saveNewProduct(title.value, description.value, quantity.value, price.value, url.value)">
+            Save new product
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Modal upgrade product-->
+ <div class="modal fade" id="exampleModalUpgrade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelUpgrade" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabelUpgrade">Upgrade product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label mr-2">Title</label>
+            <div class="col-sm-9 mb-3">
+              <input type="text" class="form-control" id="titleUpgrade" value="{{foundEl?.title}}" (keyup)="checkParamsUpgrade()" #titleUpgrade>
+            </div>
+              <label for="description" class="col-sm-2 col-form-label mr-2">Description</label>
+              <div class="col-sm-9 mb-3">
+                <textarea class="form-control" id="descriptionUpgrade" value="{{foundEl?.description}}" rows="3" (keyup)="checkParamsUpgrade()" #descriptionUpgrade></textarea>
+              </div>
+              <label for="quantity" class="col-sm-2 col-form-label mr-2">Quantity</label>
+              <div class="col-sm-9 mb-3">
+                <input type="number" class="form-control" id="quantityUpgrade" min="1" value="{{foundEl?.quantity}}" (keyup)="checkParamsUpgrade()" #quantityUpgrade>
+              </div>
+              <label for="price" class="col-sm-2 col-form-label mr-2">Price</label>
+              <div class="col-sm-9 mb-3">
+                <input type="number" class="form-control" id="priceUpgrade" min="1" value="{{foundEl?.price}}" (keyup)="checkParamsUpgrade()" #priceUpgrade>
+              </div>
+              <label for="url" class="col-sm-2 col-form-label mr-2">Image URL</label>
+              <div class="col-sm-9 mb-3">
+                <input type="text" class="form-control" id="urlUpgrade" value="{{foundEl?.img}}" (keyup)="checkParamsUpgrade()" #urlUpgrade>
+             </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btnSaveUpgrade" data-dismiss="modal" disabled="disabled"
+        (click)="saveUpgradeProduct(titleUpgrade.value, descriptionUpgrade.value, quantityUpgrade.value, priceUpgrade.value, urlUpgrade.value)">    
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

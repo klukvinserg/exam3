@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "img": "https://www.brocard.ua/media/catalog/product/cache/ecd051e9670bd57df35c8f0b122d8aea/image/215839d722/paco-rabanne-1-million.jpg",
+    "title": "Parfum 1",
+    "description": "Adventure has no limits. The Montblanc Explorer Eau de Parfum for men is aimed at all men who love discovering new possibilities and aspire to experience unrepeatable moments that are full of excitement. Conquer all new challenges with a unique fragrance that will give you never-ending energy.",
+    "quantity": 10,
+    "price": 100
+  },
+  {
+    "id": 2,
+    "img": "https://www.brocard.ua/media/catalog/product/cache/ecd051e9670bd57df35c8f0b122d8aea/image/2171744e45/mancera-saharian-wind.jpg",
+    "title": "Parfum 2",
+    "description": "Jimmy Choo For Women Eau de Parfum for women combines pure femininity, luxury, and style, all in one bottle. The result is a magically captivating perfume with notes of flowers and fruit which dares you to join the game of seduction.",
+    "quantity": 15,
+    "price": 40
+  },
+  {
+    "id": 3,
+    "img": "https://www.brocard.ua/media/catalog/product/cache/ecd051e9670bd57df35c8f0b122d8aea/image/2088596e32/dior-addict-lip-glow.jpg",
+    "title": "Parfum 3",
+    "description": "Treat your senses to a true gourmand experience. Ariana Grande Cloud Eau de Parfum for women offers delicious notes that are nearly impossible to resist – especially if you love your sweets.",
+    "quantity": 17,
+    "price": 50
+  },
+  {
+    "id": 4,
+    "img": "https://www.brocard.ua/media/catalog/product/cache/ecd051e9670bd57df35c8f0b122d8aea/image/1493934b02/tom-ford-noir-pour-femme.jpg",
+    "title": "Parfum 4",
+    "description": "Take back what’s yours! Paco Rabanne Olympéa Eau de Parfum challenges all women to realise the power they possess. Don’t be afraid to become a goddess, a bewitching, inimitable icon. This perfume will shake the very ground beneath you, and the man of your dreams will soon fall at your feet.",
+    "quantity": 35,
+    "price": 45
+  },
+  {
+    "id": 5,
+    "img": "https://www.brocard.ua/media/catalog/product/cache/ecd051e9670bd57df35c8f0b122d8aea/image/1488430a3d/tom-ford-ombre-leather.jpg",
+    "title": "Parfum 5",
+    "description": "Start every day with a little celebration of your versatility. Calvin Klein Eternity for Men Eau de Parfum will help you master the art of switching from one role to another in a second – all with elegance and ease.",
+    "quantity": 1,
+    "price": 37
+  }
+]

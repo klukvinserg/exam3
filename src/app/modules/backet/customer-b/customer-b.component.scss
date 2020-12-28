@@ -1,0 +1,15 @@
+table {
+    counter-reset: rowNumber;
+}
+
+table tr .th{
+    counter-increment: rowNumber;
+}
+
+table tr .th:first-child::before {
+    content: counter(rowNumber);
+} 
+
+img {
+    cursor: pointer;
+}

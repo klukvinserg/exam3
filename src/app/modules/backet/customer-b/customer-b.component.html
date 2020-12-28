@@ -1,0 +1,55 @@
+<div class="table-responsive-lg">
+<table class="table mt-3">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product</th>
+        <th scope="col">Price</th>
+        <th scope="col">Q-ty</th>
+        <th scope="col">Total</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of cartDataFromLocalSt">
+      <tr>
+        <th scope="row" class="th"></th>
+        <td>{{item.title}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.price * item.quantity}}</td>
+        <td><img src="assets/images/x-circle.svg" alt="delete" [attr.key]="item.id" (click)="deleteElCart($event)"></td>
+      </tr>
+    </tbody>
+    <tr class="total d-none">
+      <th scope="row"></th>
+      <td colspan="4" class="text-right font-weight-bold"><h4>Total price:</h4></td>
+      <td class="font-weight-bold"><h3>{{totalPrice}} $</h3></td>
+    </tr>
+  </table>
+  <button type="button" class="btn btn-dark btn-lg mb-3 mt-3 w-100 d-none buy-button" data-toggle="modal" data-target="#exampleModal">BUY</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade modal-auto-clear" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5><h4>Total price: {{totalPrice}} $</h4></h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click) = "buyFunc()">BUY</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+ 
